@@ -1,3 +1,5 @@
+require("spec_helper")
+
 describe(List) do
   describe("#tasks") do
     it("tells which tasks are in it") do
