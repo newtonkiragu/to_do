@@ -1,0 +1,32 @@
+row {
+    display: inline-flex;
+    flex-basis: auto;
+}
+
+html {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://static.pexels.com/photos/258109/pexels-photo-258109.jpeg) no-repeat center center fixed;
+    color: white;
+    text-align: right;
+}
+
+button {
+    color: black;
+}
+
+p {
+    font-size: 18px;
+}
+
+input, label, li {
+    font-size: 18px;
+}
+
+input {
+    text-align: right;
+}
+
+select {
+    color: black;
+    font-size: 18px;
+    text-align: right;
+}
