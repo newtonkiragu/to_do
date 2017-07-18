@@ -28,4 +28,9 @@ describe(Task) do
       expect(test_task.list()).to(eq(test_list))
     end
   end
+
+  it("converts the name to lowercase") do
+    task = Task.create({:description => "FINAGLE THE BUFFALO"})
+    expect(task.description()).to(eq("finagle the buffalo"))
+  end
 end

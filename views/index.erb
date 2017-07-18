@@ -1,13 +1,40 @@
 <h1>To Do</h1>
-
-  <p>Here are all your tasks:</p>
-
+<h5>here are all your lists</h5>
+<% if @lists.any?() %>
+  <p>Click on a list to see the list of tasks:</p>
   <ul>
-    <% @tasks.not_done().each do |task| %>
-      <li><%= task.description %></li>
-    <% end %>
+    <% @lists.each do |list| %>
+      <li>
+        <a href="/lists/<%= list.id() %>">
+          <%= list.name() %>
+        </a>
+      </li>
+      <% end%>
   </ul>
-  
-  <% @tasks.each() do |task| %>
-        <li><%= task.description %> <a href="/tasks/<%= task.id() %>/edit">Update this task's description</a></li>
+  <% else %>
+    <p>There are no lists yet!</p>
+    <% end %>
+
+
+<form action="/lists" method="post">
+  <label for="name">Assign a name to your list:</label>
+  <input id="name" name="name" type="text">
+  <button type="submit" class="waves-effect waves-light btn">Add list</button>
+</form>
+
+<p>Here are all your tasks:</p>
+
+<p>Add tasks to my list:</p>
+<form action="/tasks" method="post">
+  <label for="list_id">Select a list</label>
+  <select id="list_id" name="list_id" type="text" class="browser-default">
+    <% @lists.each() do |list| %>
+      <option value="<%= list.id()%>">
+        <%= list.name() %>
+      </option>
       <% end %>
+  </select>
+  <label for="description">Description of the task:</label>
+  <input id="description" name="description" type="text">
+  <button type="submit" class="waves-effect waves-light red btn">Add task</button>
+</form>
